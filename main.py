@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 WINDOWS_SIZE=2
 
 dataset="He is the king . The king is royal . She is the royal queen"
+ori_dataset=dataset
 for i in ['.',';',',','?','!',':','(',')']:
     dataset = dataset.replace(i, "")
 dataset_split=str.split(dataset)
@@ -109,7 +110,8 @@ for epoch in range(EPOCHS):
     for batch_i in range(0, x_train.shape[0], BATCH_SIZE):
         _,loss = sess.run([optimizer,cost], feed_dict={
             X: x_train[batch_i:batch_i + BATCH_SIZE], Y: y_train[batch_i:batch_i + BATCH_SIZE]})
-print 'Original text : ',dataset
+print 'Original text : ',ori_dataset
+
 print text_to_int
 
 print 'Weights :'
